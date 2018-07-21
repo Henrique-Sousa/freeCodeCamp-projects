@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>freeCodeCamp Projects | Technical Documentation</title>
+	<style type="text/css">
+		*{
+  font-family: sans;
+  color: #333;
+  background: #eee;
+}
+
+@media (min-width:650px){
+  body{
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  
+  }
+  @media (max-width:650px){
+    #navbar{  
+/*    display: flex;
+      flex-direction: column;
+      height: 300px; */
+      background: red;
+    }
+  }
+#navbar{
+
+  position: sticky;
+  top: 0; 
+  height: 100vh;
+  box-sizing: border-box;
+}
+}
+#navbar header{
+  font-size: 30px;
+  margin: 50px;
+}
+#navbar a{
+  margin: 50px;
+  text-decoration: none;
+  line-height: 35px;
+  font-size: 18px;
+}
+#main-doc{
+  margin-bottom: 40px;
+}
+.main-section header{
+  margin: 50px;
+  font-size: 30px;
+}
+ul{
+  margin-left: 30px;
+  flex-direction: column;
+  height: 250px;
+  display: flex;
+  flex-wrap: wrap;
+}
+li{
+/*   display: inline; */
+  list-style-type: circle;
+}
+h2{
+ margin: 30px;
+ font-weight: normal;
+ font-size: 22px;
+}
+.main-section p{
+  text-align: justify;
+  margin: 0 30px 0 30px;
+}
+.main-section pre{
+  border: solid 1px #999;
+  background: white;
+  margin: 30px;
+}
+.main-section code{
+  background: white;
+}
+	</style>
+</head>
+<body>
+  <nav id="navbar">
+    <header>Python</header>
+    <a href="#Keywords" class="navlink">Keywords</a>
+    <a href="#Indentation" class="navlink">Indentation</a>
+    <a href="#Data_structures" class="navlink">Data structures</a>
+    <a href="#Objects" class="navlink">Objects</a>
+    <a href="#Exceptions" class="navlink">Exceptions</a>
+  </nav>
+
+<main id="main-doc">
+  <section id="Keywords" class="main-section">
+    <header>Keywords</header>
+    <ul>
+	<li>and</li><li>as</li><li>assert</li><li>async</li><li>await</li><li>break</li><li>class</li><li>continue</li><li>def</li><li>del</li<li>elif</li><li>else</li><li>except</li><li>exec</li><li>False</li><li>finally</li><li>for</li><li>from</li><li>global</li><li>if</li><li>import</li><li>in</li><li>is</li><li>lambda</li><li>None</li><li>nonlocal</li><li>not</li><li>or</li><li>pass</li><li>print</li><li>raise</li><li>return</li><li>True</li><li>try</li><li>while</li><li>with</li><li>yield</li>
+</ul>
+  </section>
+  <section id="Indentation" class="main-section">
+    <header>Indentation</header>
+    <p>
+      Python uses whitespace to delimit control flow blocks (following the off-side rule). Python borrows this feature from its predecessor ABC: instead of punctuation or keywords, it uses indentation to indicate the run of a block.
+
+In so-called "free-format" languages — that use the block structure derived from ALGOL — blocks of code are set off with braces ({ }) or keywords. In most coding conventions for these languages, programmers conventionally indent the code within a block, to visually set it apart from the surrounding code (prettyprinting).
+
+Consider a function, foo, which is passed a single parameter, x, and if the parameter is 0 will call bar and baz, otherwise it will call qux, passing x, and also call itself recursively, passing x-1 as the parameter. Here are implementations of this function in both C and Python:
+
+foo function in C with K&R indent style:
+    </p>
+    <pre>
+    <code>
+   void foo(int x)
+   {
+       if (x == 0) {
+           bar();
+           baz();
+       } else {
+           qux(x);
+           foo(x - 1);
+       }
+   }
+   </code></pre>
+    <p>foo function in Python:</p>
+    <pre>
+    <code>
+   def foo(x):
+       if x == 0:
+           bar()
+           baz()
+       else:
+           qux(x)
+           foo(x - 1)
+</code>
+</pre>
+    <p>
+      Python mandates a convention that programmers in ALGOL-style languages often follow. Incorrectly indented code can be understood by human reader differently than does a compiler or interpreter.
+
+This example illustrates an indentation error in Python:
+    </p>
+    <pre><code>
+   def foo(x):
+       if x == 0:
+           bar()
+           baz()
+       else:
+           qux(x)
+       foo(x - 1)
+    
+</code></pre>
+    <p>Here, in contrast to the above Python foo example, the function call foo(x - 1) always gets executed, resulting in an endless recursion. Such an indentation error (like the accidental removal of the indentation in the last line) is only possible in programming languages that do not mark blocks with distinct markers, like curly brackets in C. In this particular case, not even an editor with automatic indentation could prevent the erroneous behaviour of this Python code. This unintended error can easily pass into the code base without prior noticing by the programmer. In most other programming languages, this would not be possible (deleting a block-end marker in C would lead to a compiler error), and this makes the Python syntax less robust than most other languages.
+
+Both space characters and tab characters are currently accepted as forms of indentation in Python. Since many tools do not visually distinguish them, mixing spaces and tabs can create bugs that take specific efforts to find (a perennial suggestion among Python users has been removing tabs as block markers; other Python users propound removing spaces instead). Moreover, formatting routines which remove whitespace—for instance, many Internet forums—can destroy the syntax of a Python program, whereas a program in a bracketed language would merely become more difficult to read.
+
+Many popular code editors handle Python's indentation conventions seamlessly, sometimes after a configuration option is enabled.
+
+</p>
+  </section>
+  <section class="main-section" id="Data_structures">
+    <header>Data structures</header>
+    <p>
+    Since Python is a dynamically typed language, Python values, not variables, carry type. This has implications for many aspects of the way the language functions.
+    </p>
+    <p>
+All variables in Python hold references to objects, and these references are passed to functions; a function cannot change the value of variable references in its calling function (not entirely true, see below). Some people (including Guido van Rossum himself) have called this parameter-passing scheme "Call by object reference." An object reference means a name, and the passed reference is an "alias", i.e. a copy of the reference to the same object, just as in C/C++. The object's value may be changed in the called function with the "alias", for example:
+    </p>
+    <pre><code>
+    >>> alist = ['a', 'b', 'c']
+    >>> def myfunc(al):
+    ...     al.append('x')
+    ...     print al
+    ...
+    >>> myfunc(alist)
+    ['a', 'b', 'c', 'x']
+    >>> alist
+    ['a', 'b', 'c', 'x']
+    
+</code></pre>
+    <p>
+Function "myfunc" changed the value of "alist" with the formal argument "al", which is an alias of "alist". However, any attempt to operate on the alias itself will have no effect on the original object. In Python, non-innermost-local and not-declared-global accessible names are all aliases.
+    </p>
+    <p>
+Among dynamically typed languages, Python is moderately type-checked. Implicit conversion is defined for numeric types (as well as booleans), so one may validly multiply a complex number by a long integer (for instance) without explicit casting. However, there is no implicit conversion between (e.g.) numbers and strings; a string is an invalid argument to a mathematical function expecting a number.
+    </p>
+    
+<h2>Base types</h2>
+    <p>
+Python has a broad range of basic data types. Alongside conventional integer and floating-point arithmetic, it transparently supports arbitrary-precision arithmetic, complex numbers, and decimal floating point numbers.
+    </p>
+    <p>
+Python supports a wide variety of string operations. Strings in Python are immutable, so a string operation such as a substitution of characters, that in other programming languages might alter a string in place, returns a new string in Python. Performance considerations sometimes push for using special techniques in programs that modify strings intensively, such as joining character arrays into strings only as needed.
+    </p>
+    <h2>Collection types</h2>
+    <p>
+One of the very useful aspects of Python is the concept of collection (or container) types. In general a collection is an object that contains other objects in a way that is easily referenced or indexed. Collections come in two basic forms: sequences and mappings.
+    </p>
+    <p>
+The ordered sequential types are lists (dynamic arrays), tuples, and strings. All sequences are indexed positionally (0 through length − 1) and all but strings can contain any type of object, including multiple types in the same sequence. Both strings and tuples are immutable, making them perfect candidates for dictionary keys (see below). Lists, on the other hand, are mutable; elements can be inserted, deleted, modified, appended, or sorted in-place.
+    </p>
+    <p>
+Mappings, on the other hand, are unordered types implemented in the form of dictionaries which "map" a set of immutable keys to corresponding elements (much like a mathematical function). For example, one could define a dictionary having a string "toast" mapped to the integer 42 or vice versa. The keys in a dictionary must be of an immutable Python type, such as an integer or a string, because under the hood they are implemented via a hash function. This makes for much faster lookup times, but requires keys not change (and also results in a dictionary's lack of order).
+    </p>
+    <p>
+Dictionaries are also central to the internals of the language as they reside at the core of all Python objects and classes: the mappings between variable names (strings) and the values which the names reference are stored as dictionaries (see Object system). Since these dictionaries are directly accessible (via an object's __dict__ attribute), metaprogramming is a straightforward and natural process in Python.
+    </p>
+    <p>
+A set collection type was added to the core language in version 2.4. A set is an unindexed, unordered collection that contains no duplicates, and implements set theoretic operations such as union, intersection, difference, symmetric difference, and subset testing. There are two types of sets: set and frozenset, the only difference being that set is mutable and frozenset is immutable. Elements in a set must be hashable and immutable. Thus, for example, a frozenset can be an element of a regular set whereas the opposite is not true.
+    </p>
+    <p>
+Python also provides extensive collection manipulating abilities such as built in containment checking and a generic iteration protocol.
+    </p>
+    
+    <h2>Object system</h2>
+    <p>
+In Python, everything is an object, even classes. Classes, as objects, have a class, which is known as their metaclass. Python also supports multiple inheritance and mixins.
+    </>
+    <p>
+The language supports extensive introspection of types and classes. Types can be read and compared—types are instances of type. The attributes of an object can be extracted as a dictionary.
+    </p>
+    <p>
+Operators can be overloaded in Python by defining special member functions - for instance, defining __add__ on a class permits one to use the + operator on members of that class.
+    </p>
+
+  </section>
+  <section class="main-section" id="Objects">
+    <header>Objects</header>
+    <p>
+      Python supports most object oriented programming techniques. It allows polymorphism, not only within a class hierarchy but also by duck typing. Any object can be used for any type, and it will work so long as it has the proper methods and attributes. And everything in Python is an object, including classes, functions, numbers and modules. Python also has support for metaclasses, an advanced tool for enhancing classes' functionality. Naturally, inheritance, including multiple inheritance, is supported. It has limited support for private variables using name mangling. See the "Classes" section of the tutorial for details. Many Python users don't feel the need for private variables, though. The slogan "We're all responsible users here" is used to describe this attitude. Some consider information hiding to be unpythonic, in that it suggests that the class in question contains unaesthetic or ill-planned internals. However, the strongest argument for name mangling is prevention of unpredictable breakage of programs: introducing a new public variable in a superclass can break subclasses if they don't use "private" variables.
+
+From the tutorial: As is true for modules, classes in Python do not put an absolute barrier between definition and user, but rather rely on the politeness of the user not to "break into the definition."
+
+OOP doctrines such as the use of accessor methods to read data members are not enforced in Python. Just as Python offers functional-programming constructs but does not attempt to demand referential transparency, it offers an object system but does not demand OOP behavior. Moreover, it is always possible to redefine the class using properties so that when a certain variable is set or retrieved in calling code, it really invokes a function call, so that spam.eggs = toast might really invoke spam.set_eggs(toast). This nullifies the practical advantage of accessor functions, and it remains OOP because the property eggs becomes a legitimate part of the object's interface: it need not reflect an implementation detail.
+
+In version 2.2 of Python, "new-style" classes were introduced. With new-style classes, objects and types were unified, allowing the subclassing of types. Even entirely new types can be defined, complete with custom behavior for infix operators. This allows for many radical things to be done syntactically within Python. A new method resolution order for multiple inheritance was also adopted with Python 2.3. It is also possible to run custom code while accessing or setting attributes, though the details of those techniques have evolved between Python versions.
+    </p>
+    <h2>With statements</h2>
+    <p>The "with" statement handles resources. One function is called when entering scope and another when leaving. This prevents forgetting to remove the resource and also handles more complicated situations such as exceptions.</p>
+    <h2>Properties</h2>
+    <p>Properties allow specially defined methods to be invoked on an object instance by using the same syntax as used for attribute access. An example of a class defining some properties is:</p>
+<pre><code>
+  class MyClass(object):
+     def get_a(self):
+        return self._a
+     def set_a(self, value):
+        self._a = value - 1
+     a = property(get_a, set_a, doc="Off by one a")
+
+  # Python 2.6 style
+    class MyClass(object):
+     @property
+     def a(self):
+        return self._a
+     @a.setter # makes the property writable
+     def a(self, value):
+        self._a = value - 1
+        
+</code></pre>
+    <h2>Descriptors</h2>
+<p>A class that defines one or more of the special methods __get__(self,instance,owner), __set__(self,instance,value), __delete__(self,instance) can be used as a descriptor. Creating an instance of a descriptor as a class member of a second class makes the instance a property of the second class.</p>
+
+    <h2>Class and static methods</h2>
+<p>Python allows the creation of class methods and static method via the use of the @classmethod and @staticmethod decorators. The first argument to a class method is the class object instead of the self-reference to the instance. A static method has no special first argument. Neither the instance, nor the class object is passed to a static method.</p>
+
+
+  </section>
+  <section class="main-section" id="Exceptions">
+    <header>Exceptions</header>
+    <p>
+      Python supports (and extensively uses) exception handling as a means of testing for error conditions and other "exceptional" events in a program. Indeed, it is even possible to trap the exception caused by a syntax error.
+
+Python style calls for the use of exceptions whenever an error condition might arise. Rather than testing for access to a file or resource before actually using it, it is conventional in Python to just go ahead and try to use it, catching the exception if access is rejected.
+
+Exceptions can also be used as a more general means of non-local transfer of control, even when an error is not at issue. For instance, the Mailman mailing list software, written in Python, uses exceptions to jump out of deeply nested message-handling logic when a decision has been made to reject a message or hold it for moderator approval.
+
+Exceptions are often used as an alternative to the if-block, especially in threaded situations. A commonly invoked motto is EAFP, or "It is Easier to Ask for Forgiveness than Permission," which is attributed to Grace Hopper. The alternative, known as LBYL, or "Look Before You Leap", explicitly tests for pre-conditions.
+
+In this first code sample, following the LBYL approach, there is an explicit check for the attribute before access:
+    </p>
+    <pre><code>
+    if hasattr(spam, 'eggs'):
+      ham = spam.eggs
+    else:
+      handle_error()
+      
+</code></pre>
+    <p>This second sample follows the EAFP paradigm:</p>
+    <pre><code>
+    try:
+      ham = spam.eggs
+    except AttributeError:
+      handle_error()
+      
+</code></pre>
+    <p>
+      These two code samples have the same effect, although there will be performance differences. When spam has the attribute eggs, the EAFP sample will run faster. When spam does not have the attribute eggs (the "exceptional" case), the EAFP sample will run slower. The Python profiler can be used in specific cases to determine performance characteristics. If exceptional cases are rare, then the EAFP version will have superior average performance than the alternative. In addition, it avoids the whole class of time-of-check-to-time-of-use (TOCTTOU) vulnerabilities, other race conditions, and is compatible with duck typing. A drawback of EAFP is that it can be used only with statements; an exception cannot be caught in a generator expression, list comprehension, or lambda function.
+    </p>
+  </section>
+</main>
+</body>
+</html>

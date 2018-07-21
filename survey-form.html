@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>freeCodeCamp Projects | Survey Form</title>
+  <style type="text/css">
+    *{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+h1{
+  margin: 10px;
+}
+form{
+  margin: 60px;
+  padding: 20px 0 30px 0;
+  border: solid black;
+  width: 400px;
+  display: inline-block;
+}
+.form-section{
+  margin: 20px;
+}
+input[type="number"]{
+  width: 130px;
+}
+input[type="submit"]{
+  border:none;
+  height: 30px;
+  width: 100px;
+  font-size: 16px;
+}
+input[type="radio"]{
+  margin-left: 5px;
+}
+input[type="checkbox"]{
+  margin-left: 5px;
+}
+label{
+  margin-left: 5px;
+}
+
+  </style>
+</head>
+<body>
+<h1 id="title">Survey Form</h1>
+<p id="description">Generic form</p>
+<form id="survey-form" action="">
+  <div class="form-section">
+    <label id="name-label">Name</label>
+    <input type="text" id="name" required placeholder="type your name here">
+  </div>
+  <div class="form-section">
+  <label id="email-label">Email</label> 
+  <input type="email" id="email" required placeholder="type your email here">
+  </div>
+  <div class="form-section">
+  <label id="number-label">Age</label>
+  <input type="number" id="number" min="1" max="100" placeholder="your age">
+   </div>
+  
+  <label>Gender</label>
+  <select id="dropdown">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Non-binary">Non-binary</option>
+  </select>
+  
+  <div class="form-section">
+    <p>Where are you from</p> 
+    <label for="usa">USA</label>
+    <input name="usa" type="radio" name="radio-buttons">
+    <label for="other">Other</label>
+    <input name="other" type="radio" name="radio-buttons">
+  </div>
+  
+  <div class="form-section">
+    <p>Interests</p>
+    <label for="art">Art</label>
+    <input name="art" type="checkbox">
+    <label for="science">Science</label>
+    <input name="science" type="checkbox">
+    <label for="religion">Religion</label>
+    <input type="checkbox">
+  </div>
+  
+
+  <div class="form-section">
+    <label for="comments">Comments</label>
+  <input type="text-area">
+  </div>
+  
+  <div class="form-section">
+    <input type="submit">
+  </div>
+</form>
+</body>
+</html>

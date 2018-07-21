@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>freeCodeCamp Projects | Product Landing Page</title>
+	<style type="text/css">
+		*{
+  margin: 0;
+  padding: 0;
+  color: #222;
+  font-family: sans;
+}
+header{
+  background: white;
+  display: flex;
+  position: fixed;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+}
+h1{
+/*   margin: 30px 650px 30px 30px ; */
+  width: 750px;
+  margin: 30px;
+}
+nav{
+  width: 500px;
+  align-self: flex-end;
+}
+#header-img{
+  width: 64px;
+  height: 64px;
+  margin: 10px;
+}
+ul{
+  list-style-type: none;
+}
+li{
+  display: inline-block;
+  margin: 50px;
+}
+.nav-link{
+  text-decoration: none;
+}
+main{
+  text-align: center;
+  background: #eee;
+}
+main p{
+  padding: 200px 200px 40px 200px;
+  text-align: justify;
+}
+#video{
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  margin: 100px 20%;
+}
+#buy{
+  padding: 10px;
+}
+form{
+  display: inline-block;
+  padding-bottom: 30px;
+}
+form p{
+  text-align: center;
+}
+input[type="email"]{
+  width: 250px;
+  height: 25px;
+  text-align: center;
+}
+input[type="submit"]{
+  display: block;
+  margin: 20px auto;
+  width: 90px;
+  height: 40px;
+  background: blue;
+  border: none;
+  text-transform: uppercase;
+  
+}
+	</style>
+</head>
+<body>
+<header id="header">
+  <img src="data:image/png;base64,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" alt="violin" id="header-img">
+  <h1>VIOLIN</h1>
+  <nav id="nav-bar">
+    <ul>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#video" class="nav-link">Video</a></li>
+      <li><a href="#form" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <p id="about">
+   The violin, also known informally as a fiddle, is a wooden string instrument in the violin family. Most violins have a hollow wooden body. It is the smallest and highest-pitched instrument in the family in regular use. Smaller violin-type instruments are known, including the violino piccolo and the kit violin, but these are virtually unused. The violin typically has four strings tuned in perfect fifths, and is most commonly played by drawing a bow across its strings, though it can also be played by plucking the strings with the fingers (pizzicato) and by striking the strings with the wooden side of the bow (col legno). Violins are important instruments in a wide variety of musical genres. They are most prominent in the Western classical tradition, both in ensembles (from chamber music to orchestras) and as solo instruments and in many varieties of folk music, including country music, bluegrass music and in jazz. Electric violins with solid bodies and piezoelectric pickups are used in some forms of rock music and jazz fusion, with the pickups plugged into instrument amplifiers and speakers to produce sound. Further, the violin has come to be played in many non-Western music cultures, including Indian music and Iranian music. The name fiddle is often used regardless of the type of music played on it. The violin was first known in 16th-century Italy, with some further modifications occurring in the 18th and 19th centuries to give the instrument a more powerful sound and projection. In Europe, it served as the basis for the development of other stringed instruments used in Western classical music, such as the viola. Violinists and collectors particularly prize the fine historical instruments made by the Stradivari, Guarneri and Amati families from the 16th to the 18th century in Brescia and Cremona (Italy) and by Jacob Stainer in Austria. According to their reputation, the quality of their sound has defied attempts to explain or equal it, though this belief is disputed. Great numbers of instruments have come from the hands of less famous makers, as well as still greater numbers of mass-produced commercial "trade violins" coming from cottage industries in places such as Saxony, Bohemia, and Mirecourt. Many of these trade instruments were formerly sold by Sears, Roebuck and Co. and other mass merchandisers. The parts of a violin are usually made from different types of wood (although electric violins may not be made of wood at all, since their sound may not be dependent on specific acoustic characteristics of the instrument's construction, but rather an electronic pickup, amplifier and speaker). Violins can be strung with gut, Perlon or other synthetic, or steel strings. A person who makes or repairs violins is called a luthier or violinmaker. One who makes or repairs bows is called an archetier or bowmaker.
+
+
+  </p>
+  
+ <div id="video">
+   <iframe width="854" height="480" src="https://www.youtube.com/embed/o1dBg__wsuo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+ 
+  <form action="https://www.freecodecamp.com/email-submit" id="form">
+    <p id="buy">Buy Now!</p> 
+    <input type="email" placeholder="Enter your email address">
+    <input type="submit">
+  </form>
+</main>
+
+</body>
+</html>
