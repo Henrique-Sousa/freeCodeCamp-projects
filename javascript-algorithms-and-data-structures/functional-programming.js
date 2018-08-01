@@ -1,3 +1,6 @@
+// =========================================================================================
+// =========================================================================================
+
 // Functional Programming: Refactor Global Variables Out of Functions
 
 // the global variable
@@ -33,3 +36,7 @@ var newerBookList = remove(bookList, 'On The Electrodynamics of Moving Bodies');
 var newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The Electrodynamics of Moving Bodies');
 
 console.log(bookList);	
+
+
+// =========================================================================================
+// =========================================================================================
