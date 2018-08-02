@@ -1,7 +1,7 @@
 // =========================================================================================
+// Functional Programming: Refactor Global Variables Out of Functions
 // =========================================================================================
 
-// Functional Programming: Refactor Global Variables Out of Functions
 
 // the global variable
 var bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
@@ -39,7 +39,10 @@ console.log(bookList);
 
 
 
+
+// =========================================================================================
 // Functional Programming: Use the map Method to Extract Data from an Array
+// =========================================================================================
 
 // the global variable
 var watchList = [
@@ -165,9 +168,9 @@ console.log(rating);
 
 
 // =========================================================================================
+// Functional Programming: Implement map on a Prototype
 // =========================================================================================
 
-// Functional Programming: Implement map on a Prototype
 
 // the global Array
 var s = [23, 65, 98, 5];
@@ -186,10 +189,6 @@ Array.prototype.myMap = function(callback){
 var new_s = s.myMap(function(item){
   return item * 2;
 });
-
-
-// =========================================================================================
-// =========================================================================================
 
 
 // =========================================================================================

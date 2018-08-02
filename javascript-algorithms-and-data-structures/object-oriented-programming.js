@@ -1,7 +1,7 @@
 // =========================================================================================
+// Object Oriented Programming: Create a Method on an Object
 // =========================================================================================
 
-// Object Oriented Programming: Create a Method on an Object
 
 let dog = {
   name: "Spot",
@@ -21,9 +21,9 @@ function Dog(name) {
 
 
 // =========================================================================================
+// Object Oriented Programming: Use Prototype Properties to Reduce Duplicate Code
 // =========================================================================================
 
-// Object Oriented Programming: Use Prototype Properties to Reduce Duplicate Code
 
 // Add your code above this line
 let beagle = new Dog("Snoopy");
@@ -35,12 +35,10 @@ function Dog(name) {
 
 
 
-
-
 // =========================================================================================
-// =========================================================================================
-
 //Object Oriented Programming: Understand the Constructor Property
+// =========================================================================================
+
 
 // Add your code below this line
 function joinDogFraternity(candidate) {
